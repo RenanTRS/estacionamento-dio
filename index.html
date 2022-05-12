@@ -7,11 +7,11 @@
     <title>Estacionamento Dio</title>
 </head>
 <body>
-    <form action="">
-        <input type="text" id="nome" placeholder="Digite o nome do veículo" autocomplete="off" />
-        <input type="text" id="cor" placeholder="Digite a cor do veículo" autocomplete="off" />
-        <input type="text" id="placa" placeholder="Digite a placa do veículo" autocomplete="off" />
-        <button id="cadastrar" type="submit" title="Cadastrar veículo">Cadastrar</button>
+    <form>
+        <input type="text" id="name" placeholder="Digite o nome do veículo" autocomplete="off" required />
+        <input type="text" id="color" placeholder="Digite a cor do veículo" autocomplete="off" required />
+        <input type="text" id="plate" placeholder="Digite a placa do veículo" autocomplete="off" required/>
+        <button class="add" type="submit" title="Cadastrar veículo">Cadastrar</button>
     </form>
     <table>
         <thead>
@@ -23,9 +23,7 @@
                 <th>Ações</th>
             </tr>
         </thead>
-        <tbody id="patio">
-            
-        </tbody>
+        <tbody id="parking"></tbody>
     </table>
     <script src="./script.js"></script>
 </body>
