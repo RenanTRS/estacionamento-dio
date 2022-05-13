@@ -6,7 +6,11 @@ interface Vehicle {
 }
 
 export const useVehicle = () => {
-    const add = (vehicle: Vehicle) => {
+    const getStorage = ():Vehicle[] => {
+        return localStorage.parking ? JSON.parse(localStorage.parking) : []
+    }
+
+    const add = (vehicle: Vehicle, saved: boolean) => {
         const row = document.createElement('tr')
         row.innerHTML = `
             <td>${vehicle.name}</td>
@@ -15,14 +19,33 @@ export const useVehicle = () => {
             <td>${vehicle.date}</td>
             <td><button class="delete" data-plate="${vehicle.plate}">X</button></td>
         `
-        
-        const parking = document.querySelector('[data-parking]') //table body
-        parking?.appendChild(row)
+
+        const parkingElement = document.querySelector('[data-parking]') //table body
+        parkingElement?.appendChild(row)
+
+        if(saved){
+            setStorage([...getStorage(), vehicle])
+        }
     }
 
     const remove = () => {}
-    const save = () => {}
-    const render = () => {}
+    
+    const setStorage = (vehicles: Vehicle[]) => {
+        localStorage.setItem('parking', JSON.stringify(vehicles)) //Add into localStorage
+    }
 
-    return {add, remove, save, render}
+    const render = () => {
+        const parkingElement = document.querySelector('[data-parking]') //Table body
+        parkingElement!.innerHTML = '' //Clean element
+        
+        const parking = getStorage()
+        
+        if(parking.length){
+            parking.forEach(item => {
+                add(item, false)
+            });
+        }        
+    }
+
+    return {add, remove, render}
 }
