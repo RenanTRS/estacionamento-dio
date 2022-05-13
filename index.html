@@ -8,11 +8,12 @@
 </head>
 <body>
     <form>
-        <input type="text" id="name" placeholder="Digite o nome do veículo" autocomplete="off" required />
-        <input type="text" id="color" placeholder="Digite a cor do veículo" autocomplete="off" required />
-        <input type="text" id="plate" placeholder="Digite a placa do veículo" autocomplete="off" required/>
-        <button class="add" type="submit" title="Cadastrar veículo">Cadastrar</button>
+        <input type="text" id="name" data-name placeholder="Digite o nome do veículo" autocomplete="off" required />
+        <input type="text" id="plate" data-plate placeholder="Digite a placa do veículo" autocomplete="off" required/>
+        <input type="text" id="color" data-color placeholder="Digite a cor do veículo" autocomplete="off" required />
+        <button class="add" data-add type="submit" title="Cadastrar veículo">Cadastrar</button>
     </form>
+
     <table>
         <thead>
             <tr>
@@ -23,8 +24,10 @@
                 <th>Ações</th>
             </tr>
         </thead>
-        <tbody id="parking"></tbody>
+
+        <tbody id="parking" data-parking></tbody>
     </table>
-    <script src="./script.js"></script>
+    
+    <script type="module" src="./script.js"></script>
 </body>
 </html>
