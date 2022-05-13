@@ -1,17 +1,14 @@
-"use strict";
-(() => {
-    const getInputElement = (query) => document.querySelector(query); //Função para a captura de inputs
-    const buttonCadastrar = document.querySelector('.add'); //Button cadastrar
-    buttonCadastrar === null || buttonCadastrar === void 0 ? void 0 : buttonCadastrar.addEventListener('click', () => {
+import { useVehicle } from './useVehicle.js';
+(function () {
+    var getInputElement = function (query) { return document.querySelector(query); }; //Função para a captura de inputs
+    var form = document.querySelector('form'); //Formulário
+    form.addEventListener('submit', function (event) {
         var _a, _b, _c;
-        const name = (_a = getInputElement('#name')) === null || _a === void 0 ? void 0 : _a.value;
-        const color = (_b = getInputElement('#color')) === null || _b === void 0 ? void 0 : _b.value;
-        const plate = (_c = getInputElement('#plate')) === null || _c === void 0 ? void 0 : _c.value;
-        if (!name || !plate || !color) {
-            return;
-        }
-        console.log(name);
-        console.log(color);
-        console.log(plate);
+        event.preventDefault();
+        var name = (_a = getInputElement('[data-name]')) === null || _a === void 0 ? void 0 : _a.value;
+        var color = (_b = getInputElement('[data-color]')) === null || _b === void 0 ? void 0 : _b.value;
+        var plate = (_c = getInputElement('[data-plate]')) === null || _c === void 0 ? void 0 : _c.value;
+        var data = { name: name, color: color, plate: plate, date: new Date };
+        useVehicle().add(data); //Adiciona veículo
     });
 })();
