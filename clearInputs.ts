@@ -1,10 +1,9 @@
-//interface Props extends HTMLInputElement{}
-interface CleanInputsProp {
+interface ClearInputsProp {
     name: HTMLInputElement | null;
     plate: HTMLInputElement | null;
     color: HTMLInputElement | null;
 }
-export const cleanInputs = ({name, plate, color}: CleanInputsProp) => {
+export const clearInputs = ({name, plate, color}: ClearInputsProp) => {
     name!.value = ''
     plate!.value = ''
     color!.value = ''
