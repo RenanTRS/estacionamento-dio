@@ -1,38 +1,40 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-export var useVehicle = function () {
-    var getStorage = function () {
+export const useVehicle = () => {
+    const getStorage = () => {
         return localStorage.parking ? JSON.parse(localStorage.parking) : [];
     };
-    var add = function (vehicle, saved) {
-        var row = document.createElement('tr');
-        row.innerHTML = "\n            <td>".concat(vehicle.name, "</td>\n            <td>").concat(vehicle.plate, "</td>\n            <td>").concat(vehicle.color, "</td>\n            <td>").concat(vehicle.date, "</td>\n            <td><button class=\"delete\" data-plate=\"").concat(vehicle.plate, "\">X</button></td>\n        ");
-        var parkingElement = document.querySelector('[data-parking]'); //table body
+    const add = (vehicle, saved) => {
+        const row = document.createElement('tr');
+        const day = vehicle.date.day;
+        const month = vehicle.date.month;
+        const year = vehicle.date.year;
+        const hour = vehicle.date.hour;
+        const minute = vehicle.date.minute;
+        row.innerHTML = `
+            <td>${vehicle.name}</td>
+            <td>${vehicle.plate}</td>
+            <td>${vehicle.color}</td>
+            <td>${day}/${month}/${year} - ${hour}:${minute}</td>
+            <td><button title="Excluir ${vehicle.plate}" class="delete" data-plate="${vehicle.plate}">X</button></td>
+        `;
+        const parkingElement = document.querySelector('[data-parking]'); //Corpo da tabela
         parkingElement === null || parkingElement === void 0 ? void 0 : parkingElement.appendChild(row);
         if (saved) {
-            setStorage(__spreadArray(__spreadArray([], getStorage(), true), [vehicle], false));
+            setStorage([...getStorage(), vehicle]);
         }
     };
-    var remove = function () { };
-    var setStorage = function (vehicles) {
+    const remove = () => { };
+    const setStorage = (vehicles) => {
         localStorage.setItem('parking', JSON.stringify(vehicles)); //Add into localStorage
     };
-    var render = function () {
-        var parkingElement = document.querySelector('[data-parking]'); //Table body
+    const render = () => {
+        const parkingElement = document.querySelector('[data-parking]'); //Table body
         parkingElement.innerHTML = ''; //Clean element
-        var parking = getStorage();
+        const parking = getStorage();
         if (parking.length) {
-            parking.forEach(function (item) {
+            parking.forEach(item => {
                 add(item, false);
             });
         }
     };
-    return { add: add, remove: remove, render: render };
+    return { add, remove, render };
 };

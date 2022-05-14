@@ -2,7 +2,14 @@ interface Vehicle {
     name?: string;
     plate?: string;
     color?: string;
-    date: Date;
+    date: {
+        day: string;
+        month: string;
+        year: string;
+        hour: string;
+        minute: string;
+        newDate: Date;
+    }
 }
 
 export const useVehicle = () => {
@@ -12,15 +19,22 @@ export const useVehicle = () => {
 
     const add = (vehicle: Vehicle, saved: boolean) => {
         const row = document.createElement('tr')
+        
+        const day = vehicle.date.day
+        const month = vehicle.date.month
+        const year = vehicle.date.year
+        const hour = vehicle.date.hour
+        const minute = vehicle.date.minute
+
         row.innerHTML = `
             <td>${vehicle.name}</td>
             <td>${vehicle.plate}</td>
             <td>${vehicle.color}</td>
-            <td>${vehicle.date}</td>
-            <td><button class="delete" data-plate="${vehicle.plate}">X</button></td>
+            <td>${day}/${month}/${year} - ${hour}:${minute}</td>
+            <td><button title="Excluir ${vehicle.plate}" class="delete" data-plate="${vehicle.plate}">X</button></td>
         `
 
-        const parkingElement = document.querySelector('[data-parking]') //table body
+        const parkingElement = document.querySelector('[data-parking]') //Corpo da tabela
         parkingElement?.appendChild(row)
 
         if(saved){
