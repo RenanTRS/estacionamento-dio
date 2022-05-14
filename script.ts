@@ -1,7 +1,8 @@
+import { getDate } from './getDate.js'
 import { useVehicle } from './useVehicle.js'
 (() => {
     const getInputElement = (query: string) => document.querySelector(query) as HTMLInputElement | null //Função para a captura de inputs
-    useVehicle().render() //Render data of storage
+    useVehicle().render() //Renderiza o storage
     
     const form = document.querySelector('form') as HTMLFormElement //Formulário
     form.addEventListener('submit', (event) => {
@@ -10,8 +11,10 @@ import { useVehicle } from './useVehicle.js'
         const name = getInputElement('[data-name]')?.value
         const color = getInputElement('[data-color]')?.value
         const plate = getInputElement('[data-plate]')?.value
-
-        const data = {name, color, plate, date: new Date}
+        
+        const date = getDate() //Pega os valores para data
+        
+        const data = {name, color, plate, date}
         useVehicle().add(data, true) //Adiciona veículo
     })
 })()
