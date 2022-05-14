@@ -2,7 +2,6 @@ import { useVehicle } from './useVehicle.js';
 import { checkPlate } from './checkPlate.js';
 import { getDate } from './getDate.js';
 import { clearInputs } from './clearInputs.js';
-
 (() => {
     const getInputElement = (query) => document.querySelector(query); //Função para a captura de inputs
     useVehicle().render(); //Renderiza o storage
