@@ -1,11 +1,2 @@
 #Interface
 scripts/interface/Vehicle.js
-
-#Files .js
-script.js
-scripts/checkPlate.js
-scripts/clearInputs.js
-scripts/getDate.js
-scripts/getStorage.js
-scripts/useVehicle.js
-scripts/useStorage.js
