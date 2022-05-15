@@ -1,25 +1,11 @@
-interface Vehicle {
-    name?: string;
-    plate?: string;
-    color?: string;
-    date: {
-        day: string;
-        month: string;
-        year: string;
-        hour: string;
-        minute: string;
-        newDate: Date;
-    }
-}
+import { getStorage } from "./useStorage.js"
 
 export const checkPlate = (inputPlate: HTMLInputElement) => {
     let plate = inputPlate.value.toUpperCase()
     plate = plate.replace(/[-]/g, '')
 
-    const getStorage = ():Vehicle[] => {
-        return localStorage.parking ? JSON.parse(localStorage.parking) : []
-    }
     const plates = getStorage()
+    console.log(plates)
     
     plates.forEach(item => {
         let message = ''

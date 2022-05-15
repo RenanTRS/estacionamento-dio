@@ -1,12 +1,12 @@
 export const getDate = () => {
-    const newDate = new Date()
-    const day = String(newDate.getDate()).padStart(2, '0')
-    const month = String(newDate.getMonth()+1).padStart(2, '0')
-    const year = String(newDate.getFullYear())
-    const hour = String(newDate.getHours()).padStart(2, '0')
-    const minute = String(newDate.getMinutes()).padStart(2, '0')
+    const fullDate = new Date()
+    const day = String(fullDate.getDate()).padStart(2, '0')
+    const month = String(fullDate.getMonth()+1).padStart(2, '0')
+    const year = String(fullDate.getFullYear())
+    const hour = String(fullDate.getHours()).padStart(2, '0')
+    const minute = String(fullDate.getMinutes()).padStart(2, '0')
 
-    const date = {day, month, year, hour, minute, newDate}
+    const date = {day, month, year, hour, minute, fullDate}
     
     return date
 }

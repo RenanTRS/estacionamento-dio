@@ -1,36 +1,15 @@
-interface Vehicle {
-    name?: string;
-    plate?: string;
-    color?: string;
-    date: {
-        day: string;
-        month: string;
-        year: string;
-        hour: string;
-        minute: string;
-        newDate: Date;
-    }
-}
+import { getStorage, setStorage } from "./useStorage.js"
+import { Vehicle } from "./interface/Vehicle"
 
 export const useVehicle = () => {
-    const getStorage = ():Vehicle[] => {
-        return localStorage.parking ? JSON.parse(localStorage.parking) : []
-    }
-
     const add = (vehicle: Vehicle, saved: boolean) => {
         const row = document.createElement('tr')
-        
-        const day = vehicle.date.day
-        const month = vehicle.date.month
-        const year = vehicle.date.year
-        const hour = vehicle.date.hour
-        const minute = vehicle.date.minute
 
         row.innerHTML = `
             <td>${vehicle.name}</td>
             <td>${vehicle.plate}</td>
             <td>${vehicle.color}</td>
-            <td>${day}/${month}/${year} - ${hour}:${minute}</td>
+            <td>${vehicle.date.day}/${vehicle.date.month}/${vehicle.date.year} - ${vehicle.date.hour}:${vehicle.date.minute}</td>
             <td><button title="Excluir ${vehicle.plate}" class="delete" data-plate="${vehicle.plate}">X</button></td>
         `
 
@@ -38,16 +17,12 @@ export const useVehicle = () => {
         parkingElement?.appendChild(row)
 
         if(saved){
-            setStorage([...getStorage(), vehicle])
+            setStorage([...getStorage(), vehicle]) //Salva no localStorage se true
         }
     }
 
     const remove = () => {}
     
-    const setStorage = (vehicles: Vehicle[]) => {
-        localStorage.setItem('parking', JSON.stringify(vehicles)) //Add into localStorage
-    }
-
     const render = () => {
         const parkingElement = document.querySelector('[data-parking]') //Table body
         parkingElement!.innerHTML = '' //Clean element
@@ -56,7 +31,7 @@ export const useVehicle = () => {
         
         if(parking.length){
             parking.forEach(item => {
-                add(item, false)
+                add(item, false) //Adiciona dados na tela sem salvar no localStorage
             });
         }        
     }
