@@ -1,38 +1,28 @@
+import { getStorage, setStorage } from "./useStorage.js";
 export const useVehicle = () => {
-    const getStorage = () => {
-        return localStorage.parking ? JSON.parse(localStorage.parking) : [];
-    };
     const add = (vehicle, saved) => {
         const row = document.createElement('tr');
-        const day = vehicle.date.day;
-        const month = vehicle.date.month;
-        const year = vehicle.date.year;
-        const hour = vehicle.date.hour;
-        const minute = vehicle.date.minute;
         row.innerHTML = `
             <td>${vehicle.name}</td>
             <td>${vehicle.plate}</td>
             <td>${vehicle.color}</td>
-            <td>${day}/${month}/${year} - ${hour}:${minute}</td>
+            <td>${vehicle.date.day}/${vehicle.date.month}/${vehicle.date.year} - ${vehicle.date.hour}:${vehicle.date.minute}</td>
             <td><button title="Excluir ${vehicle.plate}" class="delete" data-plate="${vehicle.plate}">X</button></td>
         `;
         const parkingElement = document.querySelector('[data-parking]'); //Corpo da tabela
         parkingElement === null || parkingElement === void 0 ? void 0 : parkingElement.appendChild(row);
         if (saved) {
-            setStorage([...getStorage(), vehicle]);
+            setStorage([...getStorage(), vehicle]); //Salva no localStorage se true
         }
     };
     const remove = () => { };
-    const setStorage = (vehicles) => {
-        localStorage.setItem('parking', JSON.stringify(vehicles)); //Add into localStorage
-    };
     const render = () => {
         const parkingElement = document.querySelector('[data-parking]'); //Table body
         parkingElement.innerHTML = ''; //Clean element
         const parking = getStorage();
         if (parking.length) {
             parking.forEach(item => {
-                add(item, false);
+                add(item, false); //Adiciona dados na tela sem salvar no localStorage
             });
         }
     };
