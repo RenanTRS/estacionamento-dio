@@ -8,4 +8,4 @@ scripts/clearInputs.js
 scripts/getDate.js
 scripts/getStorage.js
 scripts/useVehicle.js
-
+scripts/useStorage.js
