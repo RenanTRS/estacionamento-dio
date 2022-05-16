@@ -4,12 +4,10 @@ export const checkPlate = (inputPlate) => {
     plate = plate.replace(/[- ]/g, '');
     let message = '';
     const plates = getStorage();
-    console.log(plates);
     plates.forEach(item => {
         if (item.plate === plate) { //Caso true passar a mensagem de erro
             message = 'Placa já cadastrada';
         }
-        //return inputPlate.setCustomValidity(message)
     });
     if (plate === '') { //Caso o valor seja vazio
         message = 'Insira a placa do veículo';
