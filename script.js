@@ -20,7 +20,7 @@ import { clearInputs } from './scripts/clearInputs.js';
         const data = {
             name: name === null || name === void 0 ? void 0 : name.value,
             color: color === null || color === void 0 ? void 0 : color.value,
-            plate: plate === null || plate === void 0 ? void 0 : plate.value.replace(/[-]/g, '').toUpperCase(),
+            plate: plate === null || plate === void 0 ? void 0 : plate.value.replace(/[- ]/g, '').toUpperCase(),
             date
         };
         useVehicle().add(data, true); //Adiciona veículo
