@@ -1,7 +1,7 @@
 import { getStorage } from "./useStorage.js";
 export const checkPlate = (inputPlate) => {
     let plate = inputPlate.value.toUpperCase();
-    plate = plate.replace(/[- ]/g, '');
+    plate = plate.replace(/[\.\-}><{\(\)`´~&!:;,|\@%#\\/$*^\]\[\]]/g, '');
     let message = '';
     const plates = getStorage();
     plates.forEach(item => {

@@ -26,7 +26,7 @@ import { clearInputs } from './scripts/clearInputs.js'
         const data = {
             name : name?.value,
             color: color?.value, 
-            plate: plate?.value.replace(/[- ]/g, '').toUpperCase(), //Remove o caractere "-" e transforma em maiúsculo
+            plate: plate?.value.replace(/[\.\-}><{\(\)´`~&!:;,|\@%#\\/$*^\]\[\]]/g, '').toUpperCase(), //Remove o caractere "-" e transforma em maiúsculo
             date
         }
 

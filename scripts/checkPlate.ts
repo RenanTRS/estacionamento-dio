@@ -2,7 +2,7 @@ import { getStorage } from "./useStorage.js"
 
 export const checkPlate = (inputPlate: HTMLInputElement) => {
     let plate = inputPlate.value.toUpperCase()
-    plate = plate.replace(/[- ]/g, '')
+    plate = plate.replace(/[\.\-}><{\(\)`´~&!:;,|\@%#\\/$*^\]\[\]]/g, '')
     
     let message = ''
 
