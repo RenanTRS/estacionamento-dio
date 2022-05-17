@@ -1,5 +1,6 @@
 import { getStorage, setStorage } from "./useStorage.js"
 import { Vehicle } from "./interface/Vehicle"
+import { removeData } from './removeData.js';
 
 export const useVehicle = () => {
     const add = (vehicle: Vehicle, saved: boolean) => {
@@ -9,9 +10,20 @@ export const useVehicle = () => {
             <td>${vehicle.name}</td>
             <td>${vehicle.plate}</td>
             <td>${vehicle.color}</td>
-            <td>${vehicle.date.day}/${vehicle.date.month}/${vehicle.date.year} - ${vehicle.date.hour}:${vehicle.date.minute}</td>
-            <td><button title="Excluir ${vehicle.plate}" class="delete" data-plate="${vehicle.plate}">X</button></td>
+            <td>
+                ${vehicle.date.day}/${vehicle.date.month}/${vehicle.date.year} - ${vehicle.date.hour}:${vehicle.date.minute}
+            </td>
+            <td>
+                <button type="button" title="Excluir ${vehicle.plate}" class="delete" data-delete="${vehicle.plate}">X</button>
+            </td>
         `
+        
+        row.querySelector('[data-delete]')?.addEventListener('click', (event: any) => {
+            const button = event.target
+            const dataDelete = button?.dataset.delete
+            removeData(dataDelete)
+            render()
+        })
 
         const parkingElement = document.querySelector('[data-parking]') //Corpo da tabela
         parkingElement?.appendChild(row)
@@ -20,8 +32,6 @@ export const useVehicle = () => {
             setStorage([...getStorage(), vehicle]) //Salva no localStorage se true
         }
     }
-
-    const remove = () => {}
     
     const render = () => {
         const parkingElement = document.querySelector('[data-parking]') //Table body
@@ -36,5 +46,5 @@ export const useVehicle = () => {
         }        
     }
 
-    return {add, remove, render}
+    return {add, render}
 }
