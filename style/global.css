@@ -24,4 +24,6 @@ body {
 .container {    
     width: 100%;
     max-width: 144rem;
+
+    position: relative;
 }

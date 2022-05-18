@@ -1,0 +1,28 @@
+.count {
+    position: none;
+}
+
+@media (min-width: 768px) {
+    .count {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        z-index: 3;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+
+        color: var(--color-white);
+    }
+    .count span {
+        font-weight: bold;
+    }
+    .count span:first-child {
+        font-size: 1.5rem;
+    }
+    .count span + span {
+        font-size: 4rem;
+    }
+}
