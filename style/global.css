@@ -1,0 +1,27 @@
+:root {
+    font-size: 62.5%;
+
+    --bg-color: #333;
+    --color-white: #fdfdfd;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: var(--bg-color);
+
+    font-family: 'Roboto', sans-serif;
+
+    width: 100%;
+    min-height: 100vh;
+}
+.container {    
+    width: 100%;
+    max-width: 144rem;
+}

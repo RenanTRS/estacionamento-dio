@@ -1,0 +1,32 @@
+header {
+    background-color: var(--bg-color);
+    
+    text-align: center;
+
+    width: 100%;
+    padding: 2rem;
+    top: 0;
+}
+header h1 {
+    padding-bottom: 2rem;
+    
+    font-size: clamp(1rem, 5vw, 4rem);
+    font-weight: bold;
+    color: var(--color-white);
+}
+
+@media (min-width: 768px){
+    header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        padding: 2rem 0;
+        
+        z-index: 2;
+    }
+    header h1 {
+        font-size: 4rem;
+    }
+}

@@ -1,0 +1,38 @@
+form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-direction: column;
+}
+form input {
+    height: 3rem;
+
+    border: none;
+    border-radius: .5rem;
+
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+form button {
+    border: none;
+    background-color: #0466c8;
+    color: var(--color-white);
+    border-radius: .5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: .2s;
+    padding: 1rem;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: #023e7d;
+}
+
+@media (min-width: 768px){
+    form {
+        flex-direction: row;
+    }
+    form input {
+        height: 4rem;
+    }
+}

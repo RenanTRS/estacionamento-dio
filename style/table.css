@@ -1,0 +1,78 @@
+table {
+    width: 100%;
+}
+.titleTable tr th{
+    color: var(--color-white);
+    font-size: clamp(1rem, 2vw, 2rem);
+    font-weight: bold;
+    
+    border: .1rem solid var(--color-white);
+
+    padding: 1rem 0;
+}
+
+.bodyTable tr td {
+    color: var(--color-white);
+    border: .1rem solid var(--color-white);
+    font-size: clamp(.5rem, 3vw, 2rem);
+    
+    padding: .5rem;
+
+    text-transform: capitalize;
+}
+
+.bodyTable tr td:last-child {
+    border-collapse: collapse;
+    padding: 1rem;
+    position: relative;
+}
+
+/*Button*/
+.delete {
+    position: absolute;
+    top:50%;
+    right:50%;
+    transform: translate(50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #bc3908;
+    
+    border: none;
+    border-radius: 50%;
+
+    width: clamp(1rem, 2vw,2rem);
+    height: clamp(1rem, 2vw,2rem);
+    
+    color: var(--color-white);
+    font-size: clamp(.5rem, 1.5vw, 2rem);
+    font-weight: bold;
+    text-align: center;
+    
+    transition: .2s;
+
+    cursor: pointer;
+}
+.delete:hover {
+    background-color: #621708;
+}
+
+@media (min-width: 768px){
+    .titleTable tr th{
+        font-size: 2rem;
+        padding: 1rem 0;
+    }
+    .bodyTable tr td {
+        font-size: 1.8rem;
+        padding: 1rem;
+    }
+    .bodyTable tr td:last-child {
+        padding: 2rem;
+    }
+    .delete {
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
