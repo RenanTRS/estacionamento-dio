@@ -5,29 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estacionamento Dio</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/global.css">
+    <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style/form.css">
+    <link rel="stylesheet" href="./style/table.css">
 </head>
 <body>
-    <form>
-        <input type="text" data-name placeholder="Digite o nome do veículo" autocomplete="off" required />
-        <input type="text" data-plate placeholder="Digite a placa do veículo" minlength="7" maxlength="8" autocomplete="off" required/>
-        <input type="text" data-color placeholder="Digite a cor do veículo" autocomplete="off" required />
-        <button class="add" data-add type="submit" title="Cadastrar veículo">Cadastrar</button>
-    </form>
+    <div class="container">
+        <header>
+            <h1>Estacionamento DIO</h1>
+            
+            <form>
+                <input type="text" data-name placeholder="Digite o nome do veículo" autocomplete="off" required />
+                <input type="text" data-plate placeholder="Digite a placa do veículo" minlength="7" maxlength="8" autocomplete="off" required/>
+                <input type="text" data-color placeholder="Digite a cor do veículo" autocomplete="off" required />
+                <button class="add" data-add type="submit" title="Cadastrar veículo">
+                    Cadastrar
+                </button>
+            </form>
+        </header>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Placa</th>
-                <th>Cor</th>
-                <th>Entrada</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-
-        <tbody id="parking" data-parking></tbody>
-    </table>
-    
+        <main>
+            <table>
+                <thead class="titleTable">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Placa</th>
+                        <th>Cor</th>
+                        <th>Entrada</th>
+                    </tr>
+                </thead>
+                
+                <tbody id="parking" class="bodyTable" data-parking></tbody>
+            </table>
+        </main>
+    </div>
     <script type="module" src="./script.js"></script>
 </body>
 </html>
