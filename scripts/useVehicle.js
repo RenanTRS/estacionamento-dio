@@ -1,3 +1,4 @@
+import { updateQtd } from './updateQtd.js';
 import { getStorage, setStorage } from "./useStorage.js";
 import { removeData } from './removeData.js';
 export const useVehicle = () => {
@@ -25,12 +26,14 @@ export const useVehicle = () => {
         parkingElement === null || parkingElement === void 0 ? void 0 : parkingElement.appendChild(row);
         if (saved) {
             setStorage([...getStorage(), vehicle]); //Salva no localStorage se true
+            updateQtd(); //Atualiza o contador
         }
     };
     const render = () => {
         const parkingElement = document.querySelector('[data-parking]'); //Table body
         parkingElement.innerHTML = ''; //Clean element
         const parking = getStorage();
+        updateQtd(); //Atualiza o contador
         if (parking.length) {
             parking.forEach(item => {
                 add(item, false); //Adiciona dados na tela sem salvar no localStorage

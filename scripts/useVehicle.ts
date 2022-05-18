@@ -1,3 +1,4 @@
+import { updateQtd } from './updateQtd.js';
 import { getStorage, setStorage } from "./useStorage.js"
 import { Vehicle } from "./interface/Vehicle"
 import { removeData } from './removeData.js';
@@ -30,6 +31,7 @@ export const useVehicle = () => {
 
         if(saved){
             setStorage([...getStorage(), vehicle]) //Salva no localStorage se true
+            updateQtd() //Atualiza o contador
         }
     }
     
@@ -38,6 +40,7 @@ export const useVehicle = () => {
         parkingElement!.innerHTML = '' //Clean element
         
         const parking = getStorage()
+        updateQtd() //Atualiza o contador
         
         if(parking.length){
             parking.forEach(item => {
