@@ -6,13 +6,13 @@ export const useVehicle = () => {
         var _a;
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${vehicle.name}</td>
-            <td>${vehicle.plate}</td>
-            <td>${vehicle.color}</td>
-            <td>
+            <td class="colLight">${vehicle.name}</td>
+            <td class="colDark">${vehicle.plate}</td>
+            <td class="colLight">${vehicle.color}</td>
+            <td class="colDark">
                 ${vehicle.date.day}/${vehicle.date.month}/${vehicle.date.year} - ${vehicle.date.hour}:${vehicle.date.minute}
             </td>
-            <td>
+            <td class="colLight">
                 <button type="button" title="Excluir ${vehicle.plate}" class="delete" data-delete="${vehicle.plate}">X</button>
             </td>
         `;

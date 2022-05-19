@@ -1,19 +1,22 @@
 table {
     width: 100%;
+
+    border-radius: 1.5rem;
+    overflow: hidden;
 }
 .titleTable tr th{
     color: var(--color-white);
     font-size: clamp(1rem, 2vw, 2rem);
     font-weight: bold;
     
-    border: .1rem solid var(--color-white);
+    border-bottom: 1px solid var(--border-table);
 
     padding: 1rem 0;
 }
 
 .bodyTable tr td {
     color: var(--color-white);
-    border: .1rem solid var(--color-white);
+    border-bottom: 1px solid var(--border-table);
     font-size: clamp(.5rem, 3vw, 2rem);
     
     padding: .5rem;
@@ -22,31 +25,33 @@ table {
 }
 
 .bodyTable tr td:last-child {
-    border-collapse: collapse;
-    padding: 1rem;
-    position: relative;
+    padding: .5rem;
+}
+.colLight {
+    background-color: var(--bg-colLight);
+}
+.colDark {
+    background-color: var(--bg-colDark);
 }
 
 /*Button*/
 .delete {
-    position: absolute;
-    top:50%;
-    right:50%;
-    transform: translate(50%, -50%);
+    margin: 0 auto;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-color: #bc3908;
+    background-color: var(--bg-redButton);
     
     border: none;
-    border-radius: 50%;
+    border-radius: 30%;
 
-    width: clamp(1rem, 2vw,2rem);
-    height: clamp(1rem, 2vw,2rem);
+    width: clamp(1rem, 4vw, 3rem);
+    height: clamp(1rem, 4vw, 3rem);
     
     color: var(--color-white);
-    font-size: clamp(.5rem, 1.5vw, 2rem);
+    font-size: clamp(0.5rem, 2vw, 2rem);
     font-weight: bold;
     text-align: center;
     
@@ -55,7 +60,7 @@ table {
     cursor: pointer;
 }
 .delete:hover {
-    background-color: #621708;
+    background-color: var(--bg-redButton-hover);
 }
 
 @media (min-width: 768px){
