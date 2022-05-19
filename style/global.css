@@ -2,7 +2,14 @@
     font-size: 62.5%;
 
     --bg-color: #333;
+    --bg-colLight: #282828;
+    --bg-colDark: #1c1c1c;
+    --bg-redButton: #bc3908;
+    --bg-redButton-hover: #621708;
+    --bg-blueButton: #0466c8;
+    --bg-blueButton-hover: #023e7d;
     --color-white: #fdfdfd;
+    --border-table: #4c4545;
 }
 * {
     margin: 0;
